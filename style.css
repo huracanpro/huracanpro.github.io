@@ -1,133 +1,112 @@
-/* Core Styling Reset */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    -webkit-tap-highlight-color: transparent; /* Removes blue tap flash on iPad */
 }
 
 body {
-    background-color: #0b0b0f;
-    color: #f5f5fa;
-    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: #121216;
+    color: #fff;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
 }
 
-/* Polished Top Bar */
 .navbar {
-    background: #111116;
+    background: rgba(18, 18, 22, 0.9);
     padding: 20px;
     text-align: center;
-    border-bottom: 2px solid #1f1f2e;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(10px);
 }
 
 .logo {
-    font-size: 2rem;
-    font-weight: 900;
-    letter-spacing: 2px;
-    color: #ffffff;
+    font-size: 1.8rem;
+    font-weight: 800;
 }
 
 .logo span {
-    color: #00ffcc;
-    text-shadow: 0 0 10px rgba(0, 255, 204, 0.3);
+    color: #ff3366;
 }
 
-.subtitle {
-    font-size: 0.9rem;
-    color: #707080;
-    margin-top: 4px;
-}
-
-/* Structured Main Content Container */
 .grid-container {
-    max-width: 1300px;
-    width: 100%;
+    padding: 20px;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 40px 20px;
-    flex-grow: 1;
 }
 
-/* Responsive Grid Matrix */
+/* Playvio-style Icon Grid */
 .game-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 20px;
+    /* Perfect sizing for iPad columns */
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 15px;
 }
 
-/* Micro-Engineered Game Selector Cards */
+/* The App Icons */
 .card {
-    border-radius: 14px;
-    padding: 25px 20px;
+    border-radius: 18px;
     cursor: pointer;
     position: relative;
     overflow: hidden;
-    height: 160px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-    transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.25s ease;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    aspect-ratio: 1 / 1; /* Makes them perfect squares */
+    background-color: #222;
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: transform 0.1s;
 }
 
-.card:hover {
-    transform: translateY(-6px) scale(1.02);
-    box-shadow: 0 10px 25px rgba(0, 255, 204, 0.15);
+.card:active {
+    transform: scale(0.95); /* Satisfying squish effect when tapped on iPad */
+}
+
+/* Dark gradient so the text is readable over the image */
+.card-overlay {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 15px 10px 10px;
+    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+    text-align: center;
 }
 
 .card h3 {
-    font-size: 1.3rem;
-    font-weight: 700;
-    z-index: 2;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-.tag {
-    align-self: flex-start;
-    background: rgba(0, 0, 0, 0.6);
-    padding: 4px 10px;
-    font-size: 0.75rem;
-    font-weight: bold;
-    border-radius: 8px;
-    z-index: 2;
-    letter-spacing: 0.5px;
-}
-
-/* Immersive Theater Mode Popup Layer */
+/* iPad Fullscreen Player */
 .theater-overlay {
-    display: none; /* Controlled by JavaScript toggles */
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(5, 5, 8, 0.98);
+    width: 100vw;
+    height: 100vh;
+    background: #000;
     z-index: 1000;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-}
-
-.theater-content {
-    width: 100%;
-    max-width: 1100px;
-    height: 90vh;
-    display: flex;
     flex-direction: column;
 }
 
 .theater-controls {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    margin-bottom: 15px;
+    padding: 15px 20px;
+    background: #111;
+    height: 60px;
 }
 
 .theater-controls h2 {
-    font-size: 1.4rem;
-    color: #fff;
+    font-size: 1.1rem;
+    margin-left: 20px;
+    color: #aaa;
 }
 
 .close-btn {
@@ -135,45 +114,15 @@ body {
     color: white;
     border: none;
     padding: 10px 20px;
+    font-size: 1rem;
     font-weight: bold;
-    border-radius: 8px;
+    border-radius: 20px;
     cursor: pointer;
-    transition: background 0.2s;
 }
 
-.close-btn:hover {
-    background: #e02253;
-}
-
-.frame-wrapper {
-    flex-grow: 1;
-    background: #000;
-    border-radius: 12px;
-    overflow: hidden;
-    border: 2px solid #1f1f2e;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.8);
-}
-
-.frame-wrapper iframe {
+#game-frame {
     width: 100%;
-    height: 100%;
-    display: block;
-}
-
-/* Footer Section */
-footer {
-    background: #09090c;
-    text-align: center;
-    padding: 20px;
-    font-size: 0.85rem;
-    color: #4a4a5a;
-    border-top: 1px solid #111116;
-}
-
-/* Layout adaptation for mobile displays */
-@media (max-width: 600px) {
-    .theater-overlay { padding: 0; }
-    .theater-content { height: 100vh; }
-    .theater-controls { padding: 15px; margin-bottom: 0; background: #111116; }
-    .frame-wrapper { border-radius: 0; border: none; }
+    flex-grow: 1; /* Takes up the rest of the iPad screen */
+    border: none;
+    background: #000;
 }
