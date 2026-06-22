@@ -2,15 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>huracans site for games</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Playvio Clone</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header class="navbar">
-        <div class="logo">🎮 ARCADE<span>HUB</span></div>
-        <p class="subtitle">huracans web</p>
+        <div class="logo">👾 Play<span>Hub</span></div>
     </header>
     
     <main class="grid-container">
@@ -19,20 +18,12 @@
     </main>
 
     <div class="theater-overlay" id="game-player">
-        <div class="theater-content">
-            <div class="theater-controls">
-                <h2 id="current-game-title">Game Loading...</h2>
-                <button class="close-btn" onclick="closeGame()">❌ Close Game</button>
-            </div>
-            <div class="frame-wrapper">
-                <iframe id="game-frame" src="" frameborder="0" allowfullscreen></iframe>
-            </div>
+        <div class="theater-controls">
+            <button class="close-btn" onclick="closeGame()">◀ Back to Games</button>
+            <h2 id="current-game-title">Loading...</h2>
         </div>
+        <iframe id="game-frame" src="" frameborder="0" scrolling="no" allowfullscreen></iframe>
     </div>
-
-    <footer>
-        <p>&copy; 2026 ArcadeHub Portal. Streamlined for pure performance.</p>
-    </footer>
 
     <script src="script.js"></script>
 </body>
