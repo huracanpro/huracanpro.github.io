@@ -3,23 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Playvio Clone</title>
+    <title>Play Hub | Unlimited Games</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header class="navbar">
-        <div class="logo">👾 Play<span>Hub</span></div>
+        <div class="nav-content">
+            <div class="logo">👾 Play<span>Hub</span></div>
+            <input type="text" id="search-input" class="search-bar" placeholder="🔍 Search games...">
+        </div>
     </header>
     
     <main class="grid-container">
-        <section class="game-grid" id="arcade-grid">
-            </section>
+        <section class="game-grid" id="arcade-grid"></section>
     </main>
 
     <div class="theater-overlay" id="game-player">
         <div class="theater-controls">
-            <button class="close-btn" onclick="closeGame()">◀ Back to Games</button>
+            <button class="close-btn" onclick="closeGame()">◀ Back to Hub</button>
             <h2 id="current-game-title">Loading...</h2>
         </div>
         <iframe id="game-frame" src="" frameborder="0" scrolling="no" allowfullscreen></iframe>
