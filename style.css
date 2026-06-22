@@ -1,20 +1,110 @@
-body { margin: 0; background-color: #121212; font-family: sans-serif; }
-header { text-align: center; color: white; padding: 20px; }
-
-.game-grid { 
-    display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-    gap: 20px; 
-    padding: 20px; 
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-.game-card { 
-    background: #222; 
-    border-radius: 12px; 
-    overflow: hidden; 
-    height: 300px; 
-    border: 2px solid #444; 
+body {
+    background-color: #0f0f12;
+    color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-/* This forces iframes to fill the card */
-.game-card iframe { width: 100%; height: 100%; }
+header {
+    background: linear-gradient(135deg, #1e1e2f 0%, #111119 100%);
+    text-align: center;
+    padding: 30px 20px;
+    border-bottom: 3px solid #00f2fe;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: #00f2fe;
+    text-shadow: 0 0 10px rgba(0, 242, 254, 0.6);
+    margin-bottom: 8px;
+}
+
+header p {
+    color: #b3b3cc;
+    font-size: 1.1rem;
+}
+
+.game-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    gap: 25px;
+    padding: 40px 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+    flex-grow: 1;
+    width: 100%;
+}
+
+.game-card {
+    background: #1c1c24;
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    height: 280px;
+    border: 2px solid #2d2d3d;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.game-card.portrait {
+    height: 450px;
+}
+
+.game-card:hover {
+    transform: translateY(-5px);
+    border-color: #00f2fe;
+    box-shadow: 0 12px 25px rgba(0, 242, 254, 0.2);
+}
+
+.game-tag {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: rgba(15, 15, 18, 0.85);
+    color: #a3a3c2;
+    padding: 4px 12px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 10;
+    pointer-events: none;
+}
+
+.game-tag.premium {
+    color: #ffcc00;
+    border-color: #ffcc00;
+    background: rgba(26, 18, 0, 0.9);
+}
+
+.game-card iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+    background-color: #111;
+}
+
+footer {
+    background: #0b0b0d;
+    text-align: center;
+    padding: 20px;
+    color: #666680;
+    font-size: 0.9rem;
+    border-top: 1px solid #1c1c24;
+    margin-top: auto;
+}
+
+@media (max-width: 400px) {
+    .game-grid { grid-template-columns: 1fr; }
+    .game-card, .game-card.portrait { height: 300px; }
+}
